@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Pre Built Theme */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:500');
+
+body {
+    background-color: #f3f3f3;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+
+}
+
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    border-bottom:1px solid #eee;
+    padding: 1px 5px 5px 5px;
+    background-color: #f9f9f9;
+}
+
+.mat-search_field {
+    position: absolute;
+    background: #f9f9f9;
+    z-index: 1;
+    padding: 0 24px 0 0;
+}
+.mat-search_icon-search, .mat-search_icon-close{
+    background-color: #f9f9f9 !important;
+    border-radius: 0% !important;
+}
+
+
+/* Drag and Drop Costum Styles Start */
+
+/* Draggable*/
+
+.drag-border {
+    border: #26a9e0 solid 2px;
+}
+
+.drag-handle {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.drag-handle:active { 
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+/* Droppable */
+
+.drag-hint-border {
+    border: #FFC107 dashed 2px;
+}
+
+.drag-over-border {
+    border: #FF8F00 solid 2px;
+}
+
+.drag-transit {
+    border: #26a9e0 solid 2px;
+}
+
+/* Drag and Drop Costum Styles End */
+
+.nameSort .mat-input-wrapper{
+    visibility: hidden;
+}
+
+
+.disbName .mat-option-pseudo-checkbox{
+    display: none;
+}
+
+.mat-select-panel{
+    padding-bottom: 10px !important;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #26a9e0;
+}
+
+.my-pagination /deep/ .ngx-pagination {
+    margin-top: 30px;
+}
+
+.img-ul-upload {
+    background-color: #26a9e0 !important;
+}
+
+.mat-form-field .mat-form-field-infix {
+    width: 120px;
+    margin-right: 40px;
+}
+
+.genMargin{
+    margin: 12px;
+   
+}
+
+.sectionContainer{
+    background-color:#fff;
+}
+
+
+

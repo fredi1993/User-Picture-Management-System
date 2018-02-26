@@ -1,0 +1,261 @@
+.blocks{
+  background-color: #fff;
+  margin:12px;
+  height: 200px;
+}
+
+.card {
+  width: 400px;
+  height: 982px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0));
+  border-image-slice: 1;
+  margin:12px;
+}
+
+.app-bar-bg {
+  width:100%;;
+  height: 64px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+ 
+.users {
+  font-weight: 500;
+  color: #333333;
+  padding-left: 24px;
+  font-size: 20px;
+}
+
+.usersFirstC{
+  background-color: #f9f9f9;
+}
+
+.icon{
+  font-size:24px;
+  padding:12px;
+  padding-top:20px;
+}
+
+.iconContainer{
+  padding-right: 24px;
+}
+
+.searchBar {
+  margin:12px;
+  margin-top:20px;
+  background-color: #f9f9f9;
+}
+
+.example-card {
+  padding:5px;
+  margin: 5px auto;
+}
+
+.example-header-image {
+  background-size: cover;
+  margin: auto 0px;
+  background-color: #d8d8d8;
+}
+
+.mat-card-header-text {
+  margin: 0 10px;
+}
+
+
+.name {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.54;
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: capitalize;
+  margin: auto 0px;
+}
+
+.username, .email {
+  font-size: 13px;
+  line-height: 1.54;
+  color: rgba(0, 0, 0, 0.87);
+  text-transform: capitalize;
+  margin: auto 0px;
+  padding: 4px 0px;
+}
+
+mat-card{
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.searchField{
+  margin-top:5px;
+}
+
+.active {
+  background-color:#26a9e0 !important;
+  color: white !important;
+}
+
+.active .name, .active .username,.active .email{
+  color: white !important;
+}
+.active .name{
+  font-weight: normal !important;
+}
+
+.albCtn{
+  margin-top:20px;
+}
+
+.albums{
+  padding-bottom: 40px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.albumStyle{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.albumGenTitle{
+  float: left;
+}
+
+.selectAll{
+  float: right;
+  font-size: 13px;
+  line-height: 1.54;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.emptyUser {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.54);
+  margin: auto;
+  height: 100px;
+  margin-top: 50px;
+}
+
+.albumName {
+  font-size: 13px;
+  line-height: 1.54;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.albumLength {
+  font-size: 13px;
+  line-height: 1.54;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.fab-add{
+  background-color: #26a9e0;
+  float: right;
+  margin-bottom: -45px;
+}
+
+.fab-add-xs{
+  bottom: 12%;
+  right: 10%;
+  position: fixed;
+  z-index: 1;
+}
+
+.chip-bg {
+  border-radius: 2px;
+  background-color: rgba(153, 153, 153, 0.2);
+  padding: 4px 8px;
+  margin:6px;
+}
+
+.albumContainer{
+  padding:24px;
+}
+
+.drgdrpInfo{
+  color: rgba(0, 0, 0, 0.54);
+  margin-left:5px;
+}
+
+.float-right{
+  float: right;
+}
+.float-left{
+  float: left;
+}
+
+.margin-bottom{
+  margin-bottom:10px;
+}
+.margin-bottom2{
+  margin-bottom:-20px;
+}
+
+.img {
+  width: 100%;
+  margin-bottom: 8%;
+}
+.card-picture {
+  width: 13%;
+  margin-bottom: 7%;
+}
+.card-picture-xs {
+  width: 90%;
+  margin-bottom: 10% !important;
+}
+.container {
+  min-height: 100%;
+  width: 100%;
+}
+
+.image-title {
+  font-size: 13px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.87);
+  position: absolute;
+  left: 0%;
+  padding-bottom:5px;
+}
+
+.photos .mat-card{
+  padding-bottom: 0px;
+  border-bottom: none;
+}
+
+.photos .mat-card-image {
+  margin-bottom: 0px;
+}
+
+.nameSort .mat-option-pseudo-checkbox{
+  display: none;
+}
+
+.nameSort{
+  min-width: 120px !important;
+}
+
+.optionStyle{
+  padding: 8px 14px;
+}
+
+.albumClose{
+  float: right;
+  padding: 3px 3px 0px 3px;
+}
+
+.albumSps{
+  width: 85%;
+}
+

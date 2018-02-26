@@ -1,0 +1,14 @@
+<h3>Creating a new album for {{data.user.name}}</h3>
+<form #form="ngForm" (ngSubmit)="dialogRef.close(form.value)" ngNativeValidate>
+  <div fxLayout="column" fxLayoutGap="8px">
+    <mat-form-field>
+      <input matInput ngModel [(ngModel)]="albumName" name="name" placeholder="Album Name" required>
+    </mat-form-field>
+    <image-upload [headers]="{Authorization: 'MyToken'}" (uploadFinished)="onUploadFinished($event)">
+    </image-upload>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button class="btnColor" (click)="addMe()" [disabled]="btnEnb">Create Album</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,134 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  
+  <spinner-component [spinnerShow]="showLoader"></spinner-component>
+  
+  <!-- User Section Start-->
+  <div fxFlex="30%" class="genMargin">
+      <!-- User search & Filter Header Container -->
+      <div fxLayout="row" class="sectionContainer usersFirstC">
+          <div fxFlex="20%">
+              <p class="users">Users</p>
+          </div>
+          
+          <div fxFlex="80%" fxLayoutAlign="end">
+              <mat-icon class="icon" *ngIf="!showSearchBar">filter_list</mat-icon>
+              <!-- Expandable Search -->
+              <!-- <mat-search-bar class="searchBar"></mat-search-bar> -->
+              <mat-form-field fxFlex="80%" fxFlex.xs="75%" class="examplee-form-field searchField" *ngIf="showSearchBar">
+                <!-- <button fxLayoutAlign="start" mat-button  matSuffix mat-icon-button aria-label="Close" (click)="showSearchBar=!showSearchBar">
+                  <mat-icon>arrow_back</mat-icon>
+                </button> -->
+                <input matInput type="text" placeholder="Search Users" [(ngModel)]="value" />
+                <button *ngIf="value" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value='';showSearchBar=!showSearchBar">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+              <mat-icon class="icon" (click)="hideShowSearch()">search</mat-icon>
+          </div>
+      </div>
+      <!-- User List Container -->
+      <div fxLayout="column" class="sectionContainer">
+          <div fxLayoutWrap>
+              <mat-card class="example-card" fxLayout="column" fxFlex="94%" *ngFor="let user of users |filter:value ; let i = index" (click)="getUser(user, i)" [class.active]="i == selectedRow">
+                  <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title class="name">{{user.name}}</mat-card-title>
+                      <mat-card-title class="username">{{user.username}}</mat-card-title>
+                      <mat-card-subtitle class="email">{{user.email}}</mat-card-subtitle>
+                  </mat-card-header>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+  <!-- User Section End-->
+
+  <!-- Album & Photo Section Start-->
+  <div fxFlex="65%" class="genMargin">
+
+      <!-- Only Album Section Start -->
+      <div fxLayout="column" class="albumContainer albums sectionContainer">
+          <div class="margin-bottom">
+              <div class="albumGenTitle albumStyle">Albums
+                  <span class="drgdrpInfo">Drag and Drop to Photos Section</span>
+              </div>
+              <mat-checkbox *ngIf="!emptyAlbum" (click)="addAllAlbums()" class="selectAll albumStyle">Add All</mat-checkbox>
+          </div>
+          <div class="emptyUser" *ngIf="emptyAlbum">Select a user first</div>
+
+          <!-- Album List Container -->
+          <div *ngIf="!emptyAlbum">
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutWrap>
+                <div draggable class="chip-bg" *ngFor="let album of albums; let i=index" [dragData]="album">
+                    <span class="albumName">{{album.title}}</span>
+                    <span class="albumLength">{{album.albumLength}} photos</span>
+                </div>
+            </div>
+
+            <button ngClass.xs="fab-add-xs" mat-fab class="fab-add" (click)="openAlbumCreationDialog()">
+              <mat-icon>add</mat-icon>
+            </button>
+            <!-- Checkbox version - Not Finished -->
+            <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+                <mat-grid-list cols="4" rowHeight="4:1">
+                    <mat-grid-tile  *ngFor="let user of users; let i=index">
+                        <mat-checkbox class="albumName" (change)="onChange($event)" [value]="" >Checked <span class="albumLength">100 photos</span></mat-checkbox>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+            </form> -->
+          </div>
+      </div>
+      <!-- Only Album Section End-->
+      <br />
+      <!-- Only Photo Section Start-->
+      <div droppable (onDrop)="onItemDrop($event)" class="albumContainer albums albCtn" ngClass.sm="albCtn" fxLayout="column" style="background-color:#fff;">
+          <div class="margin-bottom2">
+              <!-- Selected Albums -->
+              <div class="albumGenTitle albumStyle albumSps">
+                  <span>{{photos.length}} Photos</span>
+                  <div class="drgdrpInfo">
+                      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start" fxLayoutWrap>
+                          <div class="chip-bg" *ngFor="let album of droppedItems; let i=index">
+                              <span class="albumName">{{album.title}}</span>
+                              <span class="albumClose albumLength" (click)="removeAlbum(album.id)">
+                                <mat-icon>close</mat-icon>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <button *ngIf="!emptyPhoto" ngClass="float-right menu-filter-item-button" type="button" mat-button (click)="select.open();showSort=!showSort">
+                <mat-icon>sort</mat-icon>
+              </button>
+              <!-- Sorting Section -->
+              <mat-form-field ngClass="float-right nameSort">
+                  <mat-select #select placeholder="Name" (change)="getSortt($event)">
+                      <mat-option class="disbName" disabled>Name</mat-option>
+
+                      <mat-radio-group (change)="getSort()" class="example-radio-group" [(ngModel)]="selectedSort">
+                          <mat-radio-button class="optionStyle" value="az">A - Z</mat-radio-button>
+                          <br>
+                          <mat-radio-button class="optionStyle" value="za">Z - A</mat-radio-button>
+                      </mat-radio-group>
+
+                  </mat-select>
+              </mat-form-field>
+          </div>
+          <div class="emptyUser" *ngIf="emptyPhoto">Select an album first</div>
+          <!-- Photo Section -->
+          <div *ngIf="!emptyPhoto">
+              <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" class="photos">
+                  <mat-card ngClass.xs="card-picture-xs" class="card-picture" *ngFor="let photo of photos | orderBy: order:reverse | paginate: { itemsPerPage: 10, currentPage: p }; let i=index">
+                      <img mat-card-image [defaultImage]="'https://cdn.dribbble.com/users/24447/screenshots/1201310/inkling_spinner.gif'" [lazyLoad]="photo.thumbnailUrl">
+                      <div class="image-title">{{photo.title}}</div>
+                  </mat-card>
+                  <pagination-controls class="my-pagination" *ngIf="!emptyPhoto" (pageChange)="p = $event"></pagination-controls>
+              </div>
+          </div>
+      </div>
+      <!-- Only Photo Section End-->
+  </div>
+  <!-- Album & Photo Section End-->
+</div>
+<!-- Parent Container End -->
